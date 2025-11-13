@@ -1,37 +1,37 @@
 # crud-angular-postgres
 Aplicación web para insertar, editar, eliminar y visualizar registros almacenados en una base de datos PostgreSQL utilizando Angular para el frontend.
 
-## 1. creacion de base de datos 
-se crea una base de datos en postgreSQL y se crea la tabla donde estaran los datos de los usuarios:
+## 1. Creacion de base de datos 
+- se crea una base de datos en postgreSQL y se crea la tabla donde estaran los datos de los usuarios:
 
-    CREATE TABLE usuarios (
-    id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100),
-    correo VARCHAR(100),
-    edad INT
-    );
+        CREATE TABLE usuarios (
+        id SERIAL PRIMARY KEY,
+        nombre VARCHAR(100),
+        correo VARCHAR(100),
+        edad INT
+        );
 
-Una vez creada la tabla se realizan diferentes sentencias para verificar que la base de datos funciones correctamente:
+- Una vez creada la tabla se realizan diferentes sentencias para verificar que la base de datos funciones correctamente:
 
-    /*INSERTAR*/
-    insert into usuarios (nombre , correo, edad) values ('maicol', 'maicolarevalo0701@gmail.com', 24);
+        /*INSERTAR*/
+        insert into usuarios (nombre , correo, edad) values ('maicol', 'maicolarevalo0701@gmail.com', 24);
+        
+        /*MOSTRAR*/
+        select * from usuarios;
+        
+        /*ACTUALIZAR*/
+        UPDATE usuarios set nombre = 'marlon' , correo = 'zumakill321@gmail.com' , edad = 28 WHERE usuarios.id = 1;
+        
+        /*ELIMINAR*/
+        DELETE FROM usuarios WHERE usuarios.id = 1;
     
-    /*MOSTRAR*/
-    select * from usuarios;
-    
-    /*ACTUALIZAR*/
-    UPDATE usuarios set nombre = 'marlon' , correo = 'zumakill321@gmail.com' , edad = 28 WHERE usuarios.id = 1;
-    
-    /*ELIMINAR*/
-    DELETE FROM usuarios WHERE usuarios.id = 1;
-
-    /*MOSTRAR*/
-    select * from usuarios
+        /*MOSTRAR*/
+        select * from usuarios
     
 ## 2. Crear proyecto en Apache NetBeans (JAVA):
 Despues de crear la base de datos y la tabla en PostgreSQL, se crea un proyecto en JAVA para realizar la conexion con la base de datos:
 
-  - En la creacion del proyecto en JAVA se genera el main donde implementaremos la conexion de la base de datos como tambien la verificacion de la misma, tambien tenemos que agregar las dependencias de PostgreSQL.
+- En la creacion del proyecto en JAVA se genera el main donde implementaremos la conexion de la base de datos como tambien la verificacion de la misma, tambien tenemos que agregar las dependencias de PostgreSQL.
 
         package com.mycompany.crud_usuarios;
             / *se importan estas librerias para realizar la conexion a la base de datos (PostgreSQL) */
@@ -323,6 +323,18 @@ Despues de crear la base de datos y la tabla en PostgreSQL, se crea un proyecto 
           
       }
 
+## 2. Crear carpeta donde se implementara el Frontend del CRUD que se realizara en  Angular:
+Creada la carpeta donde se almacenara todo el frontend nos dirigimos a visual studio code: 
+
+- Con la terminal bash en visual studio code se coloca el siguiente comando para la creacion del entorno base del frontend que es en Angular:
+
+        ng new frontend-crud
+
+- Despues ingresamos a la nueva carpeta que creamos llamada frontend-crud y creamos los servicios que nos ayudaran a la conexion con el backend, tambien se utilizara la terminal bash:
+
+        ng generate service services/usuario
+  
+- Tambien crearemos en la misma carpeta de frontend-crud los componentes donde 
 
 
 
